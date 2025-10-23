@@ -5,29 +5,19 @@ Explorar e comparar as características 2 diferentes algorítmos de visão compu
 
 ## Estrutura do projeto
 
-`
+```bash
 teste-tecnico-ybysys/
-
 ├── main.py
-
 ├── requirements.txt
-
 ├── README.md
-
 ├── inputs/
-
 │   ├── barroco.jpg
-
 │   ├── blue-green.jpg
-
 │   ├── blue.jpg
-
 │   └── green.png
-
-└── outputs/
-
+└── outputs/  # criado ao executar um comando
    └── (masks e overlays)
-`
+```
 
 
 ### Iniciar um ambiente virtual, especialmente para distros Linux based:
