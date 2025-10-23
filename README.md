@@ -33,7 +33,7 @@ teste-tecnico-ybysys/
 
 
 
-### Se estiver executando em distro baseada em Linux, deve-se iniciar um ambiente virtual:
+### Iniciar um ambiente virtual, especialmente para distros Linux based:
 
 
 ```bash
@@ -79,4 +79,8 @@ K-MEANS:
 
 ## Limitações esperadas
 
+
 ## Possiveis melhorias
+
+
+## Desafios encontrados
