@@ -33,7 +33,7 @@ OVERLAY_COLORS = {
 
 # HSV divide em matriz, saturação, valor
 
-def segment_hsv(image_bgr, target, h_min, h_max, s_min, s_max, v_min, v_max):
+def hsv_method(image_bgr, target, h_min, h_max, s_min, s_max, v_min, v_max):
 
     # converte de BGR -> HSV
     image_hsv = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2HSV)
@@ -50,7 +50,7 @@ def segment_hsv(image_bgr, target, h_min, h_max, s_min, s_max, v_min, v_max):
 # kmeans -> algorítmo de clusterização.
 # o parâmetro k determina o número de centróides 
 
-def segment_kmeans(image_bgr, k, target):
+def kmeans_method(image_bgr, k, target):
     # reformata a imagem
     image_float = image_bgr.reshape((-1, 3)).astype(np.float32)
 
@@ -83,3 +83,31 @@ def segment_kmeans(image_bgr, k, target):
     mask= mask.reshape(image_bgr.shape[:2]) # voltar para o 2D
 
     return mask
+
+
+# cria o arquivo de overlay
+def create_overlay(image_bgr, mask, target):
+
+    overlay_color = OVERLAY_COLORS[target]
+
+    # a partir da mascara, cria uma uma imagem bgr
+    color_mask = np.zeros_like(image_bgr, dtype=np.uint8)
+    color_mask[mask > 0] = overlay_color
+
+    # aplica o overlay semi-transparente sobre a imagem bgr
+    alpha = 0.5 # transparência
+    overlay_image = cv2.addWeighted(image_bgr, 1 - alpha, color_mask, alpha, 0)
+
+    # para o resto da imagem, mantém-se a original
+    overlay_image[mask == 0] = image_bgr[mask == 0]
+    return overlay_image
+
+
+# func para salvar mask e overlay
+def save_results(img_path, mask, overlay_image):
+    output_dir = 'outputs'
+    os.makedirs(output_dir, exist_ok=True)
+
+    filename_base = os.path.splitext(os.path.basename(img_path))[0]
+
+ 

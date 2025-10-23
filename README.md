@@ -63,24 +63,29 @@ O script principal é o `main.py`. **O argumento `--input` é obrigatório** par
 
 HSV:
 
-- a)
+- a) python3 main.py --input inputs/blue.jpg --hsv --target blue
 
-- b)
+- b) python3 main.py --input inputs/blue-green.jpg --hsv --target green 
 
 K-MEANS:
 
-- a)
+- a) python3 main.py --input inputs/blue.png --kmeans --target blue --k 4
 
-- b)
+- b) python3 main.py --input inputs/green.png --kmeans --target green --k 6
 
 
 ## Características de cada algorítmo
 
+- HSV:
+
+- K-means:
 
 ## Limitações esperadas
 
 
-## Possiveis melhorias
-
 
 ## Desafios encontrados
+
+O maior desafio foi o ponto departida.
+Porém, ao desenvolver as  funções que aplicam os algoritmos o processo ficou mais claro.
+Ademais, foi utilizada IA generativa para definir os valroes padões de HSV_RANGES e OVERLAY_COLORS.
