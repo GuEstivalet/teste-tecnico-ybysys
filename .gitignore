@@ -1,0 +1,25 @@
+# Ignorar ambientes virtuais Python
+venv/
+.venv/
+env/
+
+# Arquivos de bytecode compilado
+*.pyc
+__pycache__/
+
+# Arquivos de distribuição e logs
+dist/
+build/
+*.log
+
+# Pasta de saída dos resultados (deve ser gerada pelo script)
+outputs/
+
+# Outros arquivos comuns do Python
+.mypy_cache/
+.pytest_cache/
+.vscode/
+
+# Se você estiver usando IDEs específicas (opcional)
+.idea/
+*.swp
