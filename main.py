@@ -183,3 +183,42 @@ def main():
     parser.add_argument('--smax', type=int, default=hsv_defaults['s_max'], help=f"Limiar S máximo (0-255). Padrão: {hsv_defaults['s_max']}")
     parser.add_argument('--vmin', type=int, default=hsv_defaults['v_min'], help=f"Limiar V mínimo (0-255). Padrão: {hsv_defaults['v_min']}")
     parser.add_argument('--vmax', type=int, default=hsv_defaults['v_max'], help=f"Limiar V máximo (0-255). Padrão: {hsv_defaults['v_max']}")
+
+    # argumentos do kmeans
+    # interessante indicar em help que o padrão é 3
+    parser.add_argument('--k', type=int, default=3, help="Número de clusters para K-Means. Padrão: 3.")
+    
+    args = parser.parse_args()
+
+
+    # guarda o path em uma variavel
+    image_path = args.input
+    
+    # verifica erros em obter a imagem
+    if not os.path.exists(image_path):
+        print(f"Erro: Arquivo não encontrado: {image_path}")
+        return
+    image_bgr = cv2.imread(image_path)
+    if image_bgr is None:
+        print(f"Erro: Não foi possível carregar a imagem em {image_path}")
+        return
+
+
+    # se bem sucedido:
+    print(f"Iniciando segmentação (Método: {args.method}, Alvo: {args.target})...")
+
+    mask = None
+    if args.method == 'hsv':
+        # carrega os valores padrão do target escolhido se as flags nao foram alteradas
+        default_params = HSV_RANGES.get(args.target, HSV_RANGES['green'])
+        
+        # Se o usuário não passou um valor customizado, usa o padrão do target.
+        h_min = args.hmin if args.hmin != HSV_RANGES['green']['h_min'] else default_params['h_min']
+        h_max = args.hmax if args.hmax != HSV_RANGES['green']['h_max'] else default_params['h_max']
+        s_min = args.smin if args.smin != HSV_RANGES['green']['s_min'] else default_params['s_min']
+        s_max = args.smax if args.smax != HSV_RANGES['green']['s_max'] else default_params['s_max']
+        v_min = args.vmin if args.vmin != HSV_RANGES['green']['v_min'] else default_params['v_min']
+        v_max = args.vmax if args.vmax != HSV_RANGES['green']['v_max'] else default_params['v_max']
+
+        mask = hsv_method(image_bgr, args.target, h_min, h_max, s_min, s_max, v_min, v_max)
+    

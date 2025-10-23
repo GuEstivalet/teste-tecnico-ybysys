@@ -1,7 +1,7 @@
 # teste-tecnico-ybysys
 
-## Objetivo do experimento:
-Explorar e comparar as características 2 diferentes algorítmos de visão computacional: HSV e K-means.  
+## Introdução
+Este material tem como objetivo explorar e comparar as características 2 diferentes algorítmos de visão computacional: HSV e K-means. Estas técnicas de Visão Computacional fazem parte dos conceitos fundamentais da área e são de caráter introdutório. Com isso, é possível analisar como serparamos um objeto, neste caso baseado na coloração, do background da imagem original.
 
 ## Estrutura do projeto
 
