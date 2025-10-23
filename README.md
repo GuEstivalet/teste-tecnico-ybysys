@@ -79,9 +79,8 @@ O método K-Means aborda a segmentação através de `agrupamento de similaridad
 
 ## Desafios encontrados
 
-O maior desafio foi o ponto departida. Porém, ao desenvolver as  funções que aplicam os algoritmos, o processo ficou mais claro.
-Ademais, foi utilizada IA generativa para definir os valroes padões de HSV_RANGES e OVERLAY_COLORS e alguns ajustes de lógica.
-Tentei integrar a funcionalidade da webcam, mas não explorei a fundo essa questão.
+O maior desafio foi o ponto departida. Porém, ao desenvolver as funções que aplicam os algoritmos, recorri a IA generativa para orientar o rumo do projeto no que compete a quais funções seriam essenciais e como implementar a função de overlay.
+Tentei integrar a funcionalidade da webcam, mas não explorei a fundo essa questão (provavelmente não funcionou pois fiz o projeto no WSL).
 
 ## Material referência/inspiração
 
