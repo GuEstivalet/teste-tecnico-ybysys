@@ -135,3 +135,51 @@ def logs(tempo_init, mask, image_shape):
 
     print(f"Percentual segmentado: {percent_seg:.2f} %")
 
+
+
+#------------------------------------------------------------------------------------
+
+
+# func main
+def main():
+    # starta a contabilizar o tempo de execução
+    start_time = time.time()
+
+    # para ler os targets da linha de comando
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+
+    # arg obrigatório o path da imagem de input
+    parser.add_argument(
+        '--input',
+        type=str,
+        required=True,
+        help="Caminho para a imagem de entrada (ex: samples/planta1.jpg)."
+    )
+
+    # args do método: --method hsv ou --method kmeans
+    parser.add_argument(
+        '--method',
+        type=str,
+        choices=['hsv', 'kmeans'],
+        required=True
+    )
+
+    # arg de target: --target blue ou --target green
+    parser.add_argument(
+        '--target',
+        type=str,
+        choices=['green', 'blue'],
+        required=True
+    )
+
+    # argumentos para o HSV
+    hsv_defaults = HSV_RANGES['green'] # assume green como padrão
+    # já possui valores padões, mas aqui adiciona a possibilidade de passar deferentes valores para h,s,v min e max.
+    parser.add_argument('--hmin', type=int, default=hsv_defaults['h_min'], help=f"Limiar H mínimo (0-179). Padrão: {hsv_defaults['h_min']}")
+    parser.add_argument('--hmax', type=int, default=hsv_defaults['h_max'], help=f"Limiar H máximo (0-179). Padrão: {hsv_defaults['h_max']}")
+    parser.add_argument('--smin', type=int, default=hsv_defaults['s_min'], help=f"Limiar S mínimo (0-255). Padrão: {hsv_defaults['s_min']}")
+    parser.add_argument('--smax', type=int, default=hsv_defaults['s_max'], help=f"Limiar S máximo (0-255). Padrão: {hsv_defaults['s_max']}")
+    parser.add_argument('--vmin', type=int, default=hsv_defaults['v_min'], help=f"Limiar V mínimo (0-255). Padrão: {hsv_defaults['v_min']}")
+    parser.add_argument('--vmax', type=int, default=hsv_defaults['v_max'], help=f"Limiar V máximo (0-255). Padrão: {hsv_defaults['v_max']}")
