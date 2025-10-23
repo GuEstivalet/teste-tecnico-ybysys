@@ -64,12 +64,14 @@ Obs.: Aqui aumentamos o range do canal H, S e V em relação ao padrão e aplica
 K-MEANS:
 
 ```bash
-python3 main.py --input inputs/blue.png --kmeans --target blue --k 4
+python3 main.py --input inputs/blue.jpg --method kmeans --target blue --k 4
 ```
 
 ```bash
-python3 main.py --input inputs/green.png --kmeans --target green --k 6
+python3 main.py --input inputs/green.jpg --method kmeans --target green --k 6
 ```
+
+## Exemplo de log de execução
 
 ## Características de cada algorítmo
 
