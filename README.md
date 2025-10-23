@@ -7,15 +7,25 @@ Explorar e comparar as características 2 diferentes algorítmos de visão compu
 
 `
 teste-tecnico-ybysys/
+
 ├── main.py
+
 ├── requirements.txt
+
 ├── README.md
+
 ├── inputs/
+
 │   ├── barroco.jpg
+
 │   ├── blue-green.jpg
+
 │   ├── blue.jpg
+
 │   └── green.png
+
 └── outputs/
+
    └── (masks e overlays)
 `
 
