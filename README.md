@@ -51,19 +51,25 @@ O script principal é o `main.py`. **O argumento `--input` é obrigatório** par
 
 HSV:
 
-- a) python3 main.py --input inputs/blue.jpg --hsv --target blue
+```bash
+python3 main.py --input inputs/blue.jpg --hsv --target blue
+```
 
-- b) python3 main.py --input inputs/green.jpg --method hsv --hmin 20 --hmax 90 --smin 40 --smax 255 --vmin 40 --vmax 255 --target green
-
+```bash
+python3 main.py --input inputs/green.jpg --method hsv --hmin 20 --hmax 90 --smin 40 --smax 255 --vmin 40 --vmax 255 --target green
+```
 Obs.: Aqui aumentamos o range do canal H, S e V em relação ao padrão e aplicamos o target green para a imagem com cor verde predominante.
 
 
 K-MEANS:
 
-- a) python3 main.py --input inputs/blue.png --kmeans --target blue --k 4
+```bash
+python3 main.py --input inputs/blue.png --kmeans --target blue --k 4
+```
 
-- b) python3 main.py --input inputs/green.png --kmeans --target green --k 6
-
+```bash
+python3 main.py --input inputs/green.png --kmeans --target green --k 6
+```
 
 ## Características de cada algorítmo
 
