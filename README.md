@@ -73,6 +73,9 @@ python3 main.py --input inputs/green.jpg --method kmeans --target green --k 6
 
 ## Exemplo de log de execução
 
+<img width="445" height="126" alt="image" src="https://github.com/user-attachments/assets/ef75a79f-6a72-4009-8a41-d0a08ef9211e" />
+
+
 ## Características de cada algorítmo
 
 
