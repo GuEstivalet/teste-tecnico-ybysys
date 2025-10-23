@@ -221,4 +221,33 @@ def main():
         v_max = args.vmax if args.vmax != HSV_RANGES['green']['v_max'] else default_params['v_max']
 
         mask = hsv_method(image_bgr, args.target, h_min, h_max, s_min, s_max, v_min, v_max)
-    
+        
+        print(f"Parâmetros HSV utilizados: H:[{h_min}-{h_max}], S:[{s_min}-{s_max}], V:[{v_min}-{v_max}]")
+
+    # evita que o usuário passe 0 ou 1 contróides para o k-means
+    elif args.method == 'kmeans':
+        if args.k < 2:
+            print("Erro: K para K-Means deve ser 2 ou superior.")
+            return
+        mask = kmeans_method(image_bgr, args.k, args.target)
+    # salva os resultados 
+    if mask is not None:
+        # cria o overlay usando a img, a máscara e os targets
+        overlay_image = create_overlay(image_bgr, mask, args.target)
+
+        # salva no diretório
+        mask_path, overlay_path = save_results(image_path, mask, overlay_image)
+        print("Segmentação concluída com sucesso.")
+        print(f"Máscara salva em: {mask_path}")
+        print(f"Overlay salvo em: {overlay_path}")
+
+        # logs
+        logs(start_time, mask, image_bgr.shape)
+    else:
+        print("Erro ao gerar a máscara.")
+
+
+
+
+if __name__ == '__main__':
+    main()

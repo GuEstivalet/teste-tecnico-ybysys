@@ -19,6 +19,7 @@ teste-tecnico-ybysys/
    └── (masks e overlays)
 ```
 
+## Setting up
 
 ### Iniciar um ambiente virtual, especialmente para distros Linux based:
 
@@ -32,7 +33,7 @@ teste-tecnico-ybysys/
 ```
 
 
-## Requirements.txt
+### Requirements.txt
 
 
 Imporante assegurar-se de que os pré-equisitos sejam atendidos antes de replicar o experimento.
@@ -79,7 +80,8 @@ O método K-Means aborda a segmentação através de `agrupamento de similaridad
 ## Desafios encontrados
 
 O maior desafio foi o ponto departida. Porém, ao desenvolver as  funções que aplicam os algoritmos, o processo ficou mais claro.
-Ademais, foi utilizada IA generativa para definir os valroes padões de HSV_RANGES e OVERLAY_COLORS.
+Ademais, foi utilizada IA generativa para definir os valroes padões de HSV_RANGES e OVERLAY_COLORS e alguns ajustes de lógica.
+Tentei integrar a funcionalidade da webcam, mas não explorei a fundo essa questão.
 
 ## Material referência/inspiração
 
@@ -87,3 +89,6 @@ Ademais, foi utilizada IA generativa para definir os valroes padões de HSV_RANG
 
 
 - https://offsouza.medium.com/segmentando-objetos-pela-cor-opencv-487d5181b473
+
+
+- Mãos à Obra: Aprendizado de Máquina com Scikit-Learn, Keras & TensorFlow: Conceitos, Ferramentas e Técnicas Para a Construção de Sistemas Inteligentes
