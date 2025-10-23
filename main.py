@@ -110,4 +110,28 @@ def save_results(img_path, mask, overlay_image):
 
     filename_base = os.path.splitext(os.path.basename(img_path))[0]
 
- 
+    mask_path = os.path.join(output_dir, f'{filename_base}_mask.png')
+    overlay_path = os.path.join(output_dir, f'{filename_base}_overlay.png')
+
+    # salva as imagens
+    cv2.imwrite(mask_path, mask)
+    cv2.imwrite(overlay_path, overlay_image)
+
+    return mask_path, overlay_path
+
+
+# função que indica os logs de execução
+def logs(tempo_init, mask, image_shape):
+    tempo_final = time.time()
+    execution_time = tempo_final - tempo_init
+
+    total_pixels = image_shape[0] * image_shape[1]
+    pixels_seg = np.sum(mask > 0)
+    percent_seg = (pixels_seg / total_pixels) * 100
+
+    print(f"Tempo de execução: {execution_time:.4f} s")
+    print(f"Total de pixels : {total_pixels}")
+    print(f"Pixels segmentados: {pixels_seg}")
+
+    print(f"Percentual segmentado: {percent_seg:.2f} %")
+
